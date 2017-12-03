@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Music from Movies of the 90s</title>
+  <title>Music from Movies</title>
 
   <!-- Bootstrap File -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -15,7 +15,7 @@
   <script src="https://code.jquery.com/jquery.js"></script>
 
    <!-- External JS File here -->
-   <script type="text/javascript" src="assets/javascript/app.js"></script>
+   <script rel="javascript" type="text/javascript" src="assets/javascript/app.js"></script>
 
   
   <!--link to fonts-->
@@ -31,59 +31,50 @@
  </div>
 
  <div class="container">
-
+    <button id="start">Start</button>
     <span>Choose the right answer in less than 60 seconds!!</span>
     <br><br>
+
+    <div id='movieImage'> 
+      <!-- <img src="assets/images/dumb-dumber.jpg" height=200 width="200"> -->
+    </div>
+      
     <div class="panel panel-default">
         <div class="panel panel-heading panel-question">
-          <h2 class="panel panel-title" id="question" style="background-color: rgba(245, 245, 245, 0);">here will go the question???</h2>
+          <!-- <h2 class="panel panel-title" id="question" style="background-color: rgba(245, 245, 245, 0);"></h2> -->
         </div>
     
         <div class="panel panel-body">
-            <div class="row">
-                <div  class="col-md-8">
-                        <div class="list-group options">
-                                <button class="list-group-item btnAnswer" id= "opt1">Option1</button>
-                                <button class="list-group-item btnAnswer" id= "opt2">Option2</button>
-                                <button class="list-group-item btnAnswer" id="opt3">Option3</button>
-                                <button class="list-group-item btnAnswer" id= "opt4">Option4</button>
-                              
-                              </div>
-                 </div>
-                 <div class="col-md-4">
-                        <div align="center">
-                                <object class="embed-responsive-item" >
-                                  <video autoplay  style="height:170px; width:300px;" >
-                                    <source src="assets/videos/60sec.mp4" />
-                                  </video>
-                                </object>
-                              </div>
+          <h1 id="question"></h1><br>
+          <div id="optionsBox">
+                        <!-- <input type="radio" id="options" name="choice" value="opt1">  -->
+                       
+          </div>
+          <button id="submit">Submit Answer</button> 
+
+                   
+                
                     
-                 </div>
-            </div>             
+                
+                      
          
         </div>
 </div>
 <div class="container message">
-    <span>here will go a message</span>
+    <span id="msj"></span>
 </div>
 
 
 <div class="section score">
     <br><br>
-    <p>here will go the 
-        correct Answers: 
-        Incorrect answers:
+   <span id="right">Correct Answers: </span> <br> <br>
+   <span id="wrong">Wrong Answers: </span>
+   <div id="movieMusic"></div>
+      
 
     </p>
 </div>
-<script>
-        document.getElementById('question').innerHTML=  "which song was in " + questions.dumbAndDumber.name;
-        document.getElementById("opt1").innerHTML = questions.dumbAndDumber.music[0[1]];
-        document.getElementById("opt2").innerHTML = questions.dumbAndDumber.music[0[2]];
-        document.getElementById("opt3").innerHTML = questions.dumbAndDumber.music[0[3]];
-        document.getElementById("opt4").innerHTML = questions.dumbAndDumber.music[0[4]];
-</script>
+
 
 </body>
 

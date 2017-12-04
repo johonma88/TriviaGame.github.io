@@ -78,3 +78,7 @@ body{
 .score, .message{
 text-align: center;
 }
+
+img{
+    text-align: center;
+}

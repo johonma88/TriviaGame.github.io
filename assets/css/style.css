@@ -1,3 +1,80 @@
+
+body{
+    /* background-color: grey; */
+    background-image: url(../images/background.jpeg);
+    /* background-repeat: no-repeat; */
+    background-size:100% 100%;
+}
+
 .jumbotron{
     text-align: center;
+    font-family: 'Macondo Swash Caps', cursive;
+    font-size: 90px;
+    background-color: black;
+    color: white;
+}
+
+#start{
+    text-align: center;
+    color: yellow;
+    font-size: 30px;
+    font-family: 'Macondo Swash Caps', cursive;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+#firstMsj{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Macondo Swash Caps', cursive;
+    color: yellow;
+}
+
+.panel{
+    font-family: 'Handlee', cursive;
+    background-color: rgba(245, 245, 245, 0);
+    color: white;
+    text-align: center;
+
+}
+
+.panel-question, #submit, #next{
+    font-size: 40px;
+   text-align: center;
+    background-color: rgba(245, 245, 245, 0);
+    color: white;
+}
+
+#question{
+    text-align: center;
+}
+
+#optionsBox{
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+#msj{
+    font-family: 'Macondo Swash Caps', cursive;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+
+}
+
+
+
+#right, #wrong{
+    font-family: 'Macondo Swash Caps', cursive;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+.button{
+    text-align: center;
+}
+
+.score, .message{
+text-align: center;
 }

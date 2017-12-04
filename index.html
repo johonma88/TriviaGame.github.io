@@ -19,25 +19,40 @@
 
   
   <!--link to fonts-->
-
+  <link href="https://fonts.googleapis.com/css?family=Handlee|Macondo+Swash+Caps" rel="stylesheet">
 
 
 </head>
 <body>
 
 <div class="jumbotron">
-         <h1>Music from Movies Trivia Game</h1>
-                <!-- <p> <audio src="assets/music/STAR WARS - Battlefront.mp3" autoplay="autoplay" ></audio></p> -->
+  <div class="row">
+      <div class="col-md-3">
+          <img src="assets/images/Movie-making4.jpg" height='100%' width="100%">
+      </div>
+      <div class="col-md-6">
+          <h1>Music from Movies Trivia Game</h1>
+      </div>
+      <div class="col-md-3">
+          <img src="assets/images/Movie-making4.jpg" height='100%' width="100%">
+      </div>
+         
+    </div>             
  </div>
 
  <div class="container">
-    <button id="start">Start</button>
-    <span>Choose the right answer in less than 60 seconds!!</span>
+    <button id="start">Start</button><br>
+    <span id='firstMsj'>Press Start to begin!!!</span>
     <br><br>
 
     <div id='movieImage'> 
       <!-- <img src="assets/images/dumb-dumber.jpg" height=200 width="200"> -->
     </div>
+    <div id="video">
+       
+          </video> -->
+    </div>
+   
       
     <div class="panel panel-default">
         <div class="panel panel-heading panel-question">
@@ -50,14 +65,9 @@
                         <!-- <input type="radio" id="options" name="choice" value="opt1">  -->
                        
           </div>
-          <button id="submit">Submit Answer</button> 
-
-                   
-                
-                    
-                
-                      
-         
+          <br><br>
+          <button id="submit" style="text-align:center;" ></button> <br> <br>     
+          <button id="next" style="text-align:center;" ></button> 
         </div>
 </div>
 <div class="container message">
@@ -67,8 +77,8 @@
 
 <div class="section score">
     <br><br>
-   <span id="right">Correct Answers: </span> <br> <br>
-   <span id="wrong">Wrong Answers: </span>
+   <span id="right"> </span> <br> <br>
+   <span id="wrong"></span>
    <div id="movieMusic"></div>
       
 

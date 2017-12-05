@@ -93,6 +93,9 @@ var wrongMusic ='<audio src="assets/music/FAIL SOUND EFFECT.mp3" autoplay="autop
 var movieVideo;
 var thankYou= '<img src="assets/images/thankyou.jpg" height=50% width=100%>';
 
+var intervalId;
+var number =60;
+
 $("#start").click(function(){
     $(this).hide();
     //  setTimeout(trivia(),30000);
@@ -100,10 +103,28 @@ $("#start").click(function(){
      trivia();
     }); 
 
-   
+      
+function run() {
+    intervalId = setInterval(decrement, 1000);
+}
+    
+ function decrement() {
+    number--;
+    $("#show-number").html("<h2>" + number + "</h2>");
+    if (number === 0) {
+        clearInterval(intervalId);
+        $('#firstMsj').html('Your time is over !!');
+        checkAnswer ();
+          }
+        };
+    
+      
+ 
 //  setTimeout(trivia, 1000*6);
-    function trivia(){
-        
+    
+function trivia(){
+        number =60;
+        run(); //run timer
         $('#msj').empty();
         console.log(questions[index].name);
         $("#question").html("What song was in the movie: " + questions[index].name);
@@ -115,7 +136,7 @@ $("#start").click(function(){
         $('#submit').text("Submit your Answer");
 
         for (var i=0; i < 4; i++){
-            console.log('here are my answers', questions[index].answers[i]);
+            // console.log('here are my answers', questions[index].answers[i]);
             
             $("#optionsBox").append('<input type="radio" name="choices" value="' + questions[index].answers[i] + '"> ' + questions[index].answers[i] + '<br />');
         }
@@ -123,16 +144,18 @@ $("#start").click(function(){
         musicTemp = questions[index].music;
         movieVideo = questions[index].video;
         console.log(index);
-      
+       setTimeout(checkAnswer,60000);
         index++;
         
     };
-
+ 
 
 $('#submit').click(function(){
-
-    setTimeout(checkAnswer(),30000);
+    checkAnswer();
+    setTimeout(trivia,60000);
     // setInterval(trivia(),60000);
+    clearInterval(intervalId);
+    number =60;
   
     
 });
@@ -149,6 +172,9 @@ function checkAnswer(){
             console.log("if works");
             // $('#movieMusic').append(musicTemp);
             correctAnswer();
+            // clearInterval(intervalId);
+            // clearTimeout(trivia);
+            number=60;
 
         }
         else {
@@ -157,12 +183,19 @@ function checkAnswer(){
             $('#wrong').html('Incorrect Answers: '+ wrong);
             $('#movieMusic').append(wrongMusic);
             $('#msj').html("That's not the right answer! The correct answer is: " + correct);
+            // clearInterval(intervalId);
+            // clearTimeout(trivia);
+            number=60;
             
         };
         $('#right').text('Correct Answers: '+ right);
         $('#wrong').text("Wrong Answers: "+ wrong);
         $('#next').text("Next Question");
-        setTimeout(trivia, 1000*6);
+        setTimeout(trivia, 1000*60);
+        clearInterval(intervalId);
+        clearTimeout(trivia);
+
+        number=60;
     
 
     };
@@ -180,11 +213,20 @@ function correctAnswer(){
 
 $('#next').click(function(){
     trivia();
-if (index===10){
+    clearInterval(intervalId);
+    number =60;
+    run();
+    $('#firstMsj').empty();
+    clearTimeout(trivia);
+    clearTimeout(checkAnswer);
+    
+    
+if (index===(questions.lenght)){
     $('#msj').html("Thank you for playing!!");
     $('#right').text('Correct Answers: '+ right);
     $('#wrong').text("Wrong Answers: "+ wrong);
     $('#movieImage').empty();
+    $('firstMsj').empty();
     $('#movieImage').append(thankYou);
     $('.panel').empty();
     $('.button').hide;

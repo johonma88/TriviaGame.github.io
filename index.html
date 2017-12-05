@@ -41,8 +41,9 @@
  </div>
 
  <div class="container">
-    <button id="start">Start</button><br>
-    <span id='firstMsj'>Press Start to begin!!!</span>
+    <center><button id="start" >Start</button></center><br>
+    <center><span id='firstMsj'>Press Start to begin!!!</span></center>
+    <div id="show-number" style="text-align:center; font-size:80px;"></style></div>
     <br><br>
 
     <div id='movieImage'> 
@@ -50,17 +51,18 @@
     </div>
     <div id="video">
        
-          </video> -->
+        
     </div>
    
-      
+
     <div class="panel panel-default">
-        <div class="panel panel-heading panel-question">
+        <div class="panel panel-heading panel-question" style="height:80px;">
+                <h1 id="question"></h1><br>
           <!-- <h2 class="panel panel-title" id="question" style="background-color: rgba(245, 245, 245, 0);"></h2> -->
         </div>
     
         <div class="panel panel-body">
-          <h1 id="question"></h1><br>
+          <!-- <h1 id="question"></h1><br> -->
           <div id="optionsBox">
                         <!-- <input type="radio" id="options" name="choice" value="opt1">  -->
                        
@@ -77,8 +79,16 @@
 
 <div class="section score">
     <br><br>
-   <span id="right"> </span> <br> <br>
-   <span id="wrong"></span>
+    <div class="row">
+        <div class="col-md-6">
+            <span id="right"> </span>
+        </div>
+        <div class="col-md-6">
+            <span id="wrong"></span>
+        </div>
+    </div>
+    <br> <br>
+   
    <div id="movieMusic"></div>
       
 

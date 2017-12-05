@@ -16,17 +16,17 @@ body{
 
 #start{
     text-align: center;
-    color: yellow;
+    color: red;
     font-size: 30px;
     font-family: 'Macondo Swash Caps', cursive;
     background-color: rgba(245, 245, 245, 0);
 }
 
-#firstMsj{
+#firstMsj, #show-number{
     font-size: 30px;
     text-align: center;
     font-family: 'Macondo Swash Caps', cursive;
-    color: yellow;
+    color: red;
 }
 
 .panel{

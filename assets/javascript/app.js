@@ -81,7 +81,15 @@ var questions =[
             picture:'<center><img src="assets/images/the-nutty-professor-movie-featured-800x450.jpg" height="20%" width="60%"></center>' ,
             music: '<audio src="assets/music/Touch Me Tease Me.mp3" autoplay="autoplay" ></audio>',
             video: '<center><video source src="assets/videos/Case ft. Mary J. Blige  Foxy Brown- Touch Me, Tease Me.mp4" width="60%" height="20%" type="video/mp4" autoplay="autoplay"></video></center>'
-        }
+        },
+        {
+            name: "The Beauty and the Beast",
+            answers:["Dan Stevens by Evermore","Touch Me, Tease Me by Case","Because You Loved Me by Celine Dion","If I Didn't Have You by Billy Crystal and John Goodman"],
+            correctAnswer: "Dan Stevens by Evermore",
+            picture:'<center><img src="assets/images/Beauty-and-the-beast.jpg" height="20%" width="60%"></center>' ,
+            music: '<audio src="assets/music/Dan Stevens - Evermore (From Beauty and the Beast).mp3" autoplay="autoplay" ></audio>',
+            video: '<center><video source src="assets/videos/Dan Stevens - Evermore (From Beauty and the Beast).mp4" width="60%" height="20%" type="video/mp4" autoplay="autoplay"></video></center>'
+        },
 ];
 
 var index=0;
@@ -148,6 +156,18 @@ function trivia(){
         console.log(index);
        checkAnswerTime = setTimeout(checkAnswer,60000);
         index++;
+        $('#submit').show;
+        $('#next').hide;
+        if (index===(questions.length+1)){
+            $('#msj').html("Thank you for playing!!");
+            $('#right').text('Correct Answers: '+ right);
+            $('#wrong').text("Wrong Answers: "+ wrong);
+            $('#movieImage').empty();
+            $('firstMsj').empty();
+            $('#movieImage').append(thankYou);
+            $('.panel').empty();
+            $('.button').hide;
+    }
         
     };
  
@@ -158,6 +178,8 @@ $('#submit').click(function(){
     // setInterval(trivia(),60000);
     clearInterval(intervalId);
     number =60;
+    $('#next').show;
+ 
   
     
 });
@@ -197,7 +219,7 @@ function checkAnswer(){
         clearInterval(intervalId);
         clearTimeout(checkAnswerTime);
       
-
+        $('#submit').hide;
         number=60;
     
 
@@ -208,7 +230,7 @@ function correctAnswer(){
     console.log(movieVideo);
   
     $('#video').append(movieVideo);
-    $('#msj').html("Good Job!!!!   You got it");
+    $('#msj').html("Good Job!!!!   You got it right");
     
     
 };
@@ -224,17 +246,17 @@ $('#next').click(function(){
     clearTimeout(triviaTime);
     clearTimeout(checkAnswerTime);
     
-    
-if (index===(questions.lenght)){
-    $('#msj').html("Thank you for playing!!");
-    $('#right').text('Correct Answers: '+ right);
-    $('#wrong').text("Wrong Answers: "+ wrong);
-    $('#movieImage').empty();
-    $('firstMsj').empty();
-    $('#movieImage').append(thankYou);
-    $('.panel').empty();
-    $('.button').hide;
-}});
+//     if (index===(questions.lenght-1)){
+//         $('#msj').html("Thank you for playing!!");
+//         $('#right').text('Correct Answers: '+ right);
+//         $('#wrong').text("Wrong Answers: "+ wrong);
+//         $('#movieImage').empty();
+//         $('firstMsj').empty();
+//         $('#movieImage').append(thankYou);
+//         $('.panel').empty();
+//         $('.button').hide;
+// }
+});
 
 
 

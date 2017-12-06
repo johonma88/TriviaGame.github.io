@@ -95,10 +95,11 @@ var thankYou= '<img src="assets/images/thankyou.jpg" height=50% width=100%>';
 
 var intervalId;
 var number =60;
+var triviaTime;
+var checkAnswerTime;
 
 $("#start").click(function(){
     $(this).hide();
-    //  setTimeout(trivia(),30000);
      $('#firstMsj').html('Choose the right answer !!');
      trivia();
     }); 
@@ -123,6 +124,7 @@ function run() {
 //  setTimeout(trivia, 1000*6);
     
 function trivia(){
+        clearTimeout(triviaTime);
         number =60;
         run(); //run timer
         $('#msj').empty();
@@ -144,7 +146,7 @@ function trivia(){
         musicTemp = questions[index].music;
         movieVideo = questions[index].video;
         console.log(index);
-       setTimeout(checkAnswer,60000);
+       checkAnswerTime = setTimeout(checkAnswer,60000);
         index++;
         
     };
@@ -152,7 +154,7 @@ function trivia(){
 
 $('#submit').click(function(){
     checkAnswer();
-    setTimeout(trivia,60000);
+    // triviaTime= setTimeout(trivia(),60000);
     // setInterval(trivia(),60000);
     clearInterval(intervalId);
     number =60;
@@ -191,9 +193,10 @@ function checkAnswer(){
         $('#right').text('Correct Answers: '+ right);
         $('#wrong').text("Wrong Answers: "+ wrong);
         $('#next').text("Next Question");
-        setTimeout(trivia, 1000*60);
+        triviaTime= setTimeout(trivia,60000);
         clearInterval(intervalId);
-        clearTimeout(trivia);
+        clearTimeout(checkAnswerTime);
+      
 
         number=60;
     
@@ -207,6 +210,7 @@ function correctAnswer(){
     $('#video').append(movieVideo);
     $('#msj').html("Good Job!!!!   You got it");
     
+    
 };
 
 
@@ -217,8 +221,8 @@ $('#next').click(function(){
     number =60;
     run();
     $('#firstMsj').empty();
-    clearTimeout(trivia);
-    clearTimeout(checkAnswer);
+    clearTimeout(triviaTime);
+    clearTimeout(checkAnswerTime);
     
     
 if (index===(questions.lenght)){

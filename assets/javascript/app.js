@@ -161,7 +161,7 @@ function trivia(){
 
             for (var i=0; i < 4; i++){
             
-            $("#optionsBox").append('<input type="radio" name="choices" value="' + questions[index].answers[i] + '"> ' + questions[index].answers[i] + '<br />');
+            $("#optionsBox").append('<input type="radio" name="choices" value="' + questions[index].answers[i] + '"> ' + questions[index].answers[i] + '<br/>');
             }
             correct = questions[index].correctAnswer;
             musicTemp = questions[index].music;
@@ -179,8 +179,6 @@ function trivia(){
 
 $('#submit').click(function(){
     checkAnswer();
-    // triviaTime= setTimeout(trivia(),60000);
-    // setInterval(trivia(),60000);
     clearInterval(intervalId);
     number =30;
     $('#next').show();
@@ -199,12 +197,8 @@ function checkAnswer(){
             right++;
             $('#right').html('Correct Answers: '+ right);
             console.log("if works");
-            // $('#movieMusic').append(musicTemp);
             correctAnswer();
-            // clearInterval(intervalId);
-            // clearTimeout(trivia);
-            // number=30;
-            // triviaTime= setTimeout(trivia,60000);
+        
 
         }
         else {
@@ -213,17 +207,13 @@ function checkAnswer(){
             $('#wrong').html('Incorrect Answers: '+ wrong);
             $('#movieMusic').append(wrongMusic);
             $('#msj').html("That's not the right answer! The correct answer is: " + correct);
-            // clearInterval(intervalId);
-            // clearTimeout(trivia);
             $('#next').show();
-            // number=30;
-            triviaTime= setTimeout(trivia,10000);
+            triviaTime= setTimeout(trivia,5000);
             
         };
         $('#right').text('Correct Answers: '+ right);
         $('#wrong').text("Wrong Answers: "+ wrong);
         $('#next').text("Next Question");
-        // triviaTime= setTimeout(trivia,60000);
         clearInterval(intervalId);
         clearTimeout(checkAnswerTime);
       
@@ -235,8 +225,6 @@ function checkAnswer(){
 
 function correctAnswer(){
     $('#movieImage').empty();
-    // console.log(movieVideo);
-  
     $('#video').append(movieVideo);
     $('#msj').html("Good Job!!!!   You got it right");
     triviaTime= setTimeout(trivia,60000);
@@ -247,6 +235,9 @@ function correctAnswer(){
 
 
 $('#next').click(function(){
+   if( index!=questions.length){
+
+  
     trivia();
     clearInterval(intervalId);
     number =30;
@@ -254,17 +245,10 @@ $('#next').click(function(){
     $('#firstMsj').empty();
     clearTimeout(triviaTime);
     clearTimeout(checkAnswerTime);
-    
-//     if (index===(questions.lenght)){
-//         $('#msj').html("Thank you for playing!!");
-//         $('#right').text('Correct Answers: '+ right);
-//         $('#wrong').text("Wrong Answers: "+ wrong);
-//         $('#movieImage').empty();
-//         $('firstMsj').empty();
-//         $('#movieImage').append(thankYou);
-//         $('.panel').empty();
-//         $('.button').hide;
-// }
+    console.log(index);
+}
+
+
 });
 
 

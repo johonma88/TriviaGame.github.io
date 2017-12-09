@@ -144,6 +144,8 @@ function trivia(){
             $('.panel').empty();
             $('.button').hide();
             $('#movieMusic').empty();
+            $('#video').empty();
+            $("#show-number").empty();
             clearTimeout(triviaTime);
             clearTimeout(checkAnswerTime);
             clearInterval(intervalId);
